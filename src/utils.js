@@ -1,3 +1,4 @@
+'use strict';
 
 // CURRY
 const curry = module.exports.curry = (f, ...params) => {

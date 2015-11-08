@@ -1,2 +1,4 @@
-import test from './utils';
-console.log(test);
+import utils from './utils';
+import monads from './monads';
+
+export default {};
