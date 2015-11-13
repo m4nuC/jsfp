@@ -1,6 +1,6 @@
 {
   "name": "jsfp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Functional programming utilities for Javascript",
   "main": "src/index.js",
   "scripts": {
