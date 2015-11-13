@@ -16,11 +16,82 @@ const mult2 = (x) => x * 2;
 const square = (x) => x * x;
 const negate = (x) => -x;
 
+describe('Maybe', function() {
+	describe('is monad because: ', function() {
+		it ('has a unit method', function (done) {
+			expect(monads.Maybe.of).to.be.a('function');
+			done()
+		});
+		it ('is mapable', function (done) {
+			const m = monads.Maybe.of('test')
+			expect(m.map).to.be.a('function');
+			done()
+		});
+		it ('is chainable', function (done) {
+			const monoid = (value) => monads.Maybe.of(value)
+			const m = monads.Maybe.of('test');
+			expect(m.chain(monoid).__value).to.equal('test');
+			done()
+		});
+	});
+	describe('unit method (.of)', function() {
+		it ('should exist has an instance method', function (done) {
+			expect(monads.Maybe.of).to.be.a('function');
+			done()
+		});
+		it ('should exist has an instance method', function (done) {
+			const m = monads.Maybe.of('test')
+			expect(m.of).to.be.a('function');
+			done()
+		});
+	});
+	describe('bind method (.map)', function() {
+		it ('should exist has an instance method', function (done) {
+			expect(monads.Maybe.of).to.be.a('function');
+			done()
+		});
+		it ('should exist has an instance method', function (done) {
+			const m = monads.Maybe.of('test')
+			expect(m.of).to.be.a('function');
+			done()
+		});
+		it ('should exist has an instance method', function (done) {
+			const m = monads.Maybe.of('test')
+			expect(m.of).to.be.a('function');
+			done()
+		});
+	});
+});
+
 
 describe('Compose', function() {
-	it ('should compose 2 or more function from right to left', function (done) {
+	it ('should compose 2 or more function', function (done) {
 		let add1andMultAndSquare = utils.compose( square, mult2, add1 );
 		expect(add1andMultAndSquare(1)).to.equal(16);
+		let add1thenMult = utils.compose( mult2, add1 );
+		expect(add1thenMult(1)).to.equal(4);
+		done()
+	});
+
+	it ('compsotion order should go from the right to left', function (done) {
+		let multThenSquare = utils.compose( square, mult2);
+		expect(multThenSquare(1)).to.equal(4);
+		expect(multThenSquare(1)).to.not.equal(2);
+		done()
+	});
+
+	it ('compsotion order should go from the right to left', function (done) {
+		let multThenSquare = utils.compose( square, mult2);
+		expect(multThenSquare(1)).to.equal(4);
+		expect(multThenSquare(1)).to.not.equal(2);
+		done()
+	});
+
+	it ('allow to compose with composed funciton jsut the same', function (done) {
+		let add1andMultAndSquare = utils.compose( square, mult2, add1 );
+		expect(add1andMultAndSquare(1)).to.equal(16);
+		let add1andMultAndSquareThenAdd1 = utils.compose( add1,add1andMultAndSquare);
+		expect(add1andMultAndSquareThenAdd1(1)).to.equal(4);
 		done()
 	});
 });
