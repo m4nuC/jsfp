@@ -1,5 +1,5 @@
 {
-  "name": "jsfps",
+  "name": "jsfp",
   "version": "0.0.1",
   "description": "Functional programming utilities for Javascript",
   "main": "index.js",
