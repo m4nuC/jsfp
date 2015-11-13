@@ -2,7 +2,7 @@
   "name": "jsfp",
   "version": "0.0.1",
   "description": "Functional programming utilities for Javascript",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha  --compilers js:babel-core/register ./tests/index.specs.js --harmony -u bdd -R spec --watch"
   },
