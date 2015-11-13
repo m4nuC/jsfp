@@ -1,7 +1,6 @@
 'use strict';
 const flatten =  module.exports.flatten = (arr) => [].concat.apply([], arr);
 
-
 // Identity
 const _Container = function (val) {
   this.__value = val;

@@ -20,7 +20,7 @@
     "require-dir": "^0.3.0",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "webpack": "^1.12.3",
+    "webpack": "^1.12.4",
     "webpack-dev-server": "^1.12.1"
   },
   "author": "Emmanuel Chappat",
