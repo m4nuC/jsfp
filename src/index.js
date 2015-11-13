@@ -1,4 +1,3 @@
-import utils from './utils';
-import monads from './monads';
-
-export default {utils, monads};
+const utils = require('./utils');
+const monads = require('./monads')
+module.exports = {utils, monads};
