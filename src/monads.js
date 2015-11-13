@@ -26,16 +26,30 @@ _Container.of = function(x) { return new _Container(x); };
 const Identity = module.exports.Identity = (val) => new _Container(val);
 
 
-// IMPLEMENT
+// Monadify Arrays
 
-Array.of = Array.prototype.of = function (a) {
-	return [a];
-};
+module.exports.monadifyArray = () => {
+	Array.of = Array.prototype.of = function (a) {
+		return [a];
+	};
 
-Array.prototype.flatMap = function (f) {
-	return flatten(this.map(f));
+	Array.prototype.flatMap = function (f) {
+		return flatten(this.map(f));
+	}
+
 }
 
+
+
+// Revert Monadification of Arrays
+
+module.exports.monadifyRevert = () => {
+	if (!Array.of) throw new Error('Array haven\'t been patched');
+	// Save the original array
+	delete Array.of;
+	delete Array.prototype.of;
+	delete Array.prototype.flatMap;
+}
 
 // MAYBE
 const _Maybe = function (val) {
@@ -58,13 +72,11 @@ _Maybe.prototype.map = function(f) {
 }
 
 _Maybe.prototype.join = function() {
-	if ( this.__value.constructor === Array && this.__value.length === 0 || (this.isNothing && this.isNothing())
-	) {
+ 	return this.isNothing() ? Maybe.of(null) : this.__value;
+}
 
-		return _Maybe.of(null);
-	} else {
-		return this.__value;
-	}
+_Maybe.prototype.chain = function(f) {
+	return this.map(f).join(); // or compose(join, map(f))(m)
 }
 
 const Maybe = module.exports.Maybe = _Maybe;
