@@ -10,6 +10,7 @@ module.exports = {
 		path: BUILD_FOLDER,
 		publicPath: BUILD_FOLDER,
 		filename: "jsfp.js",
+		library: "jsfp",
 		libraryTarget: "commonjs"
 	},
 

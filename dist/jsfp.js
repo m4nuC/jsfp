@@ -1,4 +1,5 @@
-(function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
+exports["jsfp"] =
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -247,6 +248,10 @@
 	  Array.prototype.flatMap = function (f) {
 	    return flatten(this.map(f));
 	  };
+
+	  Array.prototype.join = function (f) {
+	    return flatten(this.map(f));
+	  };
 	};
 
 	// Revert Monadification of Arrays
@@ -317,4 +322,4 @@
 	};
 
 /***/ }
-/******/ ])));
+/******/ ]);

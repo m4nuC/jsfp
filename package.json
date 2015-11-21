@@ -1,8 +1,8 @@
 {
   "name": "jsfp",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Functional programming utilities for Javascript",
-  "main": "src/fp-utils.js",
+  "main": "dist/jsfp.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha  --compilers js:babel-core/register ./tests/index.specs.js --harmony -u bdd -R spec --watch",
     "travis-test": "./node_modules/mocha/bin/mocha  --compilers js:babel-core/register ./tests/index.specs.js --harmony -u bdd -R spec"

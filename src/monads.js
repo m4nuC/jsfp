@@ -36,6 +36,10 @@ module.exports.monadifyArray = () => {
     return flatten(this.map(f));
   }
 
+  Array.prototype.join = function (f) {
+    return flatten(this.map(f));
+  }
+
 }
 
 
