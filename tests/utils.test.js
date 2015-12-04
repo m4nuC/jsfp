@@ -111,3 +111,22 @@ describe('Map', function() {
 		done()
 	});
 });
+
+
+describe('filtero', function() {
+	it ('filter an object without mutation', function (done) {
+		const obj = { testKey: 'testValue', testKey2: 'testValue2' };
+		const filtered = utils.filtero((v, k) => true, obj);
+		expect(filtered).not.to.equal(obj);
+		done()
+	});
+	it ('filter method should be passed the value and the key of the object', function (done) {
+		const obj = { testKey: 'testValue', testKey2: 'testValue2' };
+		const filtered = utils.filtero((v, k) => v === 'testValue', obj);
+		expect(filtered).to.deep.equal({ testKey: 'testValue'});
+
+		const filtered2 = utils.filtero((v, k) => k === 'testKey', obj);
+		expect(filtered2).to.deep.equal({ testKey: 'testValue'});
+		done()
+	});
+});

@@ -54,7 +54,7 @@ const mapo = module.exports.mapo = curry((f, object) => {
 const filtero = module.exports.filtero = curry((f, object) => {
   let newObject = {};
   Object.keys(object).filter((key) => {
-    if (f(object[key])) {
+    if (f(object[key], key)) {
       newObject[key] = object[key]
     }
   });

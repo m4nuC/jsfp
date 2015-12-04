@@ -124,7 +124,7 @@
 	var filtero = module.exports.filtero = curry(function (f, object) {
 	  var newObject = {};
 	  Object.keys(object).filter(function (key) {
-	    if (f(object[key])) {
+	    if (f(object[key], key)) {
 	      newObject[key] = object[key];
 	    }
 	  });
