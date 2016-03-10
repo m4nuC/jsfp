@@ -64,6 +64,16 @@ const filtero = module.exports.filtero = curry((f, object) => {
 // FLATTEN
 const flatten =  module.exports.flatten = (arr) => [].concat.apply([], arr);
 
+// DEEP FLATTEN
+const deepFlatten =  module.exports.deepFlatten = (arr, deep) => {
+  // Since map() alway returns an array, we use flatten() to remove this array
+  return flatten(
+    flatten(arr).map(item => {
+      return Array.isArray(item) ? deepFlatten(item) : item
+    }
+  ));
+}
+
 // JOIN
 const join = module.exports.join = (mma) => {
   if ( mma.constructor.valueOf() == '_Container') {

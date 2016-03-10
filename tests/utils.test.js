@@ -43,6 +43,22 @@ describe('Compose', function() {
 	});
 });
 
+describe('flatten()', function() {
+	it ('should flatten a single level nested array', function (done) {
+		let arr = utils.flatten([1, [2, 3]]);
+		expect(arr.length).to.equal(3);
+		done()
+	});
+});
+
+describe('deepFlatten()', function() {
+	it ('should flatten arbitrarily nested array', function (done) {
+		let arr = utils.deepFlatten([1, [2, [3, [4]]]]);
+		expect(arr.length).to.equal(4);
+		done()
+	});
+});
+
 describe('Curry', function() {
 	it ('should transform a function with an arity of 2 in a unary one', function (done) {
 		let add2 = utils.curry( tu.add )(2);
@@ -69,7 +85,7 @@ describe('Curry', function() {
 	});
 });
 
-describe('Map', function() {
+describe('map()', function() {
 	it ('should call map method on functors', function (done) {
 		let maybe = monads.Maybe.of('test');
 		let func = (x) => x;
