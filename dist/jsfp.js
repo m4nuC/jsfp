@@ -136,6 +136,14 @@
 	  return [].concat.apply([], arr);
 	};
 
+	// DEEP FLATTEN
+	var deepFlatten = module.exports.deepFlatten = function (arr, deep) {
+	  // Since map() alway returns an array, we use flatten() to remove this array
+	  return flatten(flatten(arr).map(function (item) {
+	    return Array.isArray(item) ? deepFlatten(item) : item;
+	  }));
+	};
+
 	// JOIN
 	var join = module.exports.join = function (mma) {
 	  if (mma.constructor.valueOf() == '_Container') {
