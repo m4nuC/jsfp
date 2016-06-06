@@ -131,6 +131,16 @@
 	  return newObject;
 	});
 
+	// REDUCE OBJECTS
+	var reduceo = module.exports.reduceo = curry(function (tranform, init, object) {
+	  var keys = Object.keys(object);
+	  var acc = init ? init : object[keys[0]];
+	  keys.map(function (key) {
+	    return tranform(object[key], acc);
+	  });
+	  return acc;
+	});
+
 	// FLATTEN
 	var flatten = module.exports.flatten = function (arr) {
 	  return [].concat.apply([], arr);
