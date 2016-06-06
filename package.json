@@ -1,6 +1,6 @@
 {
   "name": "jsfp",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Functional programming utilities for Javascript",
   "main": "dist/jsfp.js",
   "scripts": {

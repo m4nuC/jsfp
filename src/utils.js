@@ -61,6 +61,15 @@ const filtero = module.exports.filtero = curry((f, object) => {
   return newObject;
 })
 
+// REDUCE OBJECTS
+const reduceo = module.exports.reduceo = curry((tranform, init, object) => {
+  const keys = Object.keys(object);
+  let acc = init ? init : object[keys[0]];
+  keys.map(key => tranform(object[key], acc));
+  return acc;
+})
+
+
 // FLATTEN
 const flatten =  module.exports.flatten = (arr) => [].concat.apply([], arr);
 
