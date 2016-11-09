@@ -65,7 +65,7 @@ const filtero = module.exports.filtero = curry((f, object) => {
 const reduceo = module.exports.reduceo = curry((tranform, init, object) => {
   const keys = Object.keys(object);
   let acc = init ? init : object[keys[0]];
-  keys.map(key => tranform(object[key], acc));
+  keys.map(key => tranform(object[key], acc, key));
   return acc;
 })
 
